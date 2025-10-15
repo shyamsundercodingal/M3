@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Different Styled Pagination — HTML, CSS & Bootstrap</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        /* GENERAL UTILS */
+        .demo-wrap {
+            padding: 1rem;
+            background: var(--bs-light);
+            border-radius: 1rem;
+        }
+
+        .demo-title {
+            font-size: 1.05rem;
+            letter-spacing: .02em;
+            text-transform: uppercase;
+            color: var(--bs-secondary);
+        }
+
+        /* 1) PILL */
+        .pg-pill .page-link {
+            border-radius: 999px !important;
+            padding-inline: 1rem;
+        }
+
+        /* 2) OUTLINE (brand-colored border, transparent background) */
+        .pg-outline .page-link {
+            border: 2px solid var(--bs-primary);
+            color: var(--bs-primary);
+            background: transparent;
+        }
+
+        .pg-outline .page-link:hover,
+        .pg-outline .page-item.active .page-link {
+            background: var(--bs-primary);
+            color: #fff;
+        }
+
+        /* 3) GHOST (subtle background; bolder on hover/active) */
+        .pg-ghost .page-link {
+            border: none;
+            background: rgba(13, 110, 253, .08);
+            color: var(--bs-primary);
+        }
+
+        .pg-ghost .page-link:hover {
+            background: rgba(13, 110, 253, .18);
+        }
+
+        .pg-ghost .page-item.active .page-link {
+            background: rgba(13, 110, 253, .28);
+            color: var(--bs-primary);
+        }
+
+        /* 4) GRADIENT (active item shows a gradient) */
+        .pg-gradient .page-item .page-link {
+            border: 1px solid rgba(0, 0, 0, .1);
+            color: var(--bs-body-color);
+            background: #fff;
+        }
+
+        .pg-gradient .page-item .page-link:hover {
+            background: #f8f9fa;
+        }
+
+        .pg-gradient .page-item.active .page-link {
+            border: none;
+            color: #fff;
+            background-image: linear-gradient(45deg, #6366f1, #14b8a6);
+            box-shadow: 0 0.2rem 0.6rem rgba(20, 184, 166, .35);
+        }
+
+        /* 5) BORDERED (thicker borders + square ends) */
+        .pg-bordered .page-link {
+            border: 2px solid var(--bs-gray-500);
+        }
+
+        .pg-bordered .page-item:first-child .page-link {
+            border-top-left-radius: .5rem;
+            border-bottom-left-radius: .5rem;
+        }
+
+        .pg-bordered .page-item:last-child .page-link {
+            border-top-right-radius: .5rem;
+            border-bottom-right-radius: .5rem;
+        }
+
+        .pg-bordered .page-link:hover {
+            background: var(--bs-gray-100);
+        }
+
+        .pg-bordered .page-item.active .page-link {
+            background: var(--bs-dark);
+            color: #fff;
+            border-color: var(--bs-dark);
+        }
+
+        /* 6) SHADOW (soft neumorphic feel) */
+        .pg-shadow .page-link {
+            background: #fff;
+            border: none;
+            box-shadow: 0 .25rem .6rem rgba(0, 0, 0, .08);
+        }
+
+        .pg-shadow .page-link:hover {
+            transform: translateY(-1px);
+        }
+
+        .pg-shadow .page-item.active .page-link {
+            background: var(--bs-primary);
+            color: #fff;
+            box-shadow: 0 .35rem .9rem rgba(13, 110, 253, .35);
+        }
+
+        /* 7) SQUARE (no rounding, compact) */
+        .pg-square .page-link {
+            border-radius: 0 !important;
+            padding: .45rem .7rem;
+        }
+
+        .pg-square .page-item.active .page-link {
+            background: var(--bs-primary);
+            color: #fff;
+        }
+
+        /* 8) MINIMAL (underline active, no boxes) */
+        .pg-minimal .page-link {
+            border: none;
+            background: transparent;
+            color: var(--bs-body-color);
+        }
+
+        .pg-minimal .page-link:hover {
+            color: var(--bs-primary);
+        }
+
+        .pg-minimal .page-item.active .page-link {
+            color: var(--bs-primary);
+            text-decoration: underline;
+            text-underline-offset: .35em;
+            text-decoration-thickness: 2px;
+        }
+
+        /* 9) DARK (dark background + light links) */
+        .pg-dark {
+            background: #111;
+            padding: .75rem 1rem;
+            border-radius: .75rem;
+        }
+
+        .pg-dark .page-link {
+            background: transparent;
+            border: 1px solid #2a2a2a;
+            color: #e9ecef;
+        }
+
+        .pg-dark .page-link:hover {
+            background: #1a1a1a;
+        }
+
+        .pg-dark .page-item.active .page-link {
+            background: #0d6efd;
+            border-color: #0d6efd;
+            color: #fff;
+        }
+
+        .pg-dark .page-item.disabled .page-link {
+            color: #6c757d;
+            border-color: #2a2a2a;
+        }
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <div class="container py-5">
+        <h1 class="mb-4 fw-bold text-primary text-center">Different Styled Pagination (HTML, CSS & Bootstrap)</h1>
+        <p class="text-center text-secondary mb-5">Nine ready-to-use looks. Replace page numbers or add icons as needed.
+        </p>
+
+        <!-- 0) DEFAULT BOOTSTRAP -->
+        <div class="demo-wrap mb-4">
+            <div class="demo-title mb-2">0) Default Bootstrap</div>
+            <nav aria-label="Default pagination">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="#" tabindex="-1">« Prev</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active" aria-current="page"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next »</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- 1) PILL -->
+        <div class="demo-wrap mb-4">
+            <div class="demo-title mb-2">1) Pill</div>
+            <nav aria-label="Pill pagination">
+                <ul class="pagination pg-pill justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">«</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">»</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- 2) OUTLINE -->
+        <div class="demo-wrap mb-4">
+            <div class="demo-title mb-2">2) Outline</div>
+            <nav aria-label="Outline pagination">
+                <ul class="pagination pg-outline justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- 3) GHOST -->
+        <div class="demo-wrap mb-4">
+            <div class="demo-title mb-2">3) Ghost</div>
+            <nav aria-label="Ghost pagination">
+                <ul class="pagination pg-ghost justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">‹</a></li>
+                    <li class="page-item"><a class="page-link" href="#">4</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">5</a></li>
+                    <li class="page-item"><a class="page-link" href="#">6</a></li>
+                    <li class="page-item"><a class="page-link" href="#">›</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- 4) GRADIENT -->
+        <div class="demo-wrap mb-4">
+            <div class="demo-title mb-2">4) Gradient (Active Item)</div>
+            <nav aria-label="Gradient pagination">
+                <ul class="pagination pg-gradient justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">«</a></li>
+                    <li class="page-item"><a class="page-link" href="#">7</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">8</a></li>
+                    <li class="page-item"><a class="page-link" href="#">9</a></li>
+                    <li class="page-item"><a class="page-link" href="#">»</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- 5) BORDERED -->
+        <div class="demo-wrap mb-4">
+            <div class="demo-title mb-2">5) Bordered</div>
+            <nav aria-label="Bordered pagination">
+                <ul class="pagination pg-bordered justify-content-center">
+                    <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                    <li class="page-item"><a class="page-link" href="#">10</a></li>
+                    <li class="page-item active"><a class="page-link" href="#">11</a></li>

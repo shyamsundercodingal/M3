@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap Pagination Example</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="p-5 bg-light">
+
+    <div class="container text-center">
+        <h2 class="text-primary mb-4">Bootstrap Pagination Example</h2>
+
+        <!-- Basic Pagination -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item active" aria-current="page">
+                    <a class="page-link" href="#">2</a>
+                </li>
+                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                <li class="page-item">
+                    <a class="page-link" href="#">Next</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Rounded Pagination -->
+        <h5 class="mt-5">Rounded Style Pagination</h5>
+        <nav aria-label="Rounded pagination">
+            <ul class="pagination pagination-lg justify-content-center">
+                <li class="page-item"><a class="page-link rounded-pill" href="#">Previous</a></li>
+                <li class="page-item"><a class="page-link rounded-pill" href="#">1</a></li>
+                <li class="page-item"><a class="page-link rounded-pill" href="#">2</a></li>
+                <li class="page-item"><a class="page-link rounded-pill" href="#">3</a></li>
+                <li class="page-item"><a class="page-link rounded-pill" href="#">Next</a></li>
+            </ul>
+        </nav>
+
+        <!-- Small Pagination -->
+        <h5 class="mt-5">Small Pagination</h5>
+        <nav aria-label="Small pagination">
+            <ul class="pagination pagination-sm justify-content-center">
+                <li class="page-item"><a class="page-link" href="#">Prev</a></li>
+                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                <li class="page-item"><a class="page-link" href="#">Next</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
